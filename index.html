@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Leather E-Mart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Luxury Leather E-Mart</h1>
+        <p>Your one-stop shop for exquisite leather products.</p>
+    </header>
+
+    <main>
+        <!-- Products Section -->
+        <section id="products">
+            <h2>Our Exquisite Collection</h2>
+            <div class="product-list">
+                <!-- Product 1 -->
+                <div class="product-item" onclick="openModal('Leather Wallet', 'A stylish leather wallet made from premium quality leather. Price: $120', 'https://images.pexels.com/photos/7085780/pexels-photo-7085780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
+                    <img src="https://images.pexels.com/photos/7085780/pexels-photo-7085780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Leather Wallet">
+                    <h3>Leather Wallet</h3>
+                    <p>Price: $120</p>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-item" onclick="openModal('Leather Belt', 'A classic leather belt that complements any outfit. Price: $100', 'https://media.istockphoto.com/id/610974238/photo/selection-of-leather-accessories.webp?a=1&b=1&s=612x612&w=0&k=20&c=ANBcwj76dloqvNWSA1-bMZCh-9jlCWMDtfbeKpLB0n8=' )">
+                    <img src="https://media.istockphoto.com/id/610974238/photo/selection-of-leather-accessories.webp?a=1&b=1&s=612x612&w=0&k=20&c=ANBcwj76dloqvNWSA1-bMZCh-9jlCWMDtfbeKpLB0n8=" alt="Leather Belt">
+                    <h3>Leather Belt</h3>
+                    <p>Price: $100</p>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-item" onclick="openModal('Leather Handbag', 'An elegant leather handbag perfect for any occasion. Price: $150', 'https://media.istockphoto.com/id/495353109/photo/handbag-isolated-white-background.jpg?s=612x612&w=0&k=20&c=ucXKAr8DE1t5VyRJPMPvEpbuhQoKpHI1Wq0jntDEQ8A=')">
+                    <img src="https://media.istockphoto.com/id/495353109/photo/handbag-isolated-white-background.jpg?s=612x612&w=0&k=20&c=ucXKAr8DE1t5VyRJPMPvEpbuhQoKpHI1Wq0jntDEQ8A=" alt="Leather Handbag">
+                    <h3>Handbag</h3>
+                    <p>Price: $150</p>
+                </div>
+                <!-- New Product 1 -->
+                <div class="product-item" onclick="openModal('Laptop in Leather Bag', 'A stylish leather bag designed to carry your laptop securely. Price: $140', 'https://images.pexels.com/photos/15059375/pexels-photo-15059375/free-photo-of-hand-of-unrecognizable-person-putting-laptop-in-leather-bag-on-a-beige-background.jpeg?auto=compress&cs=tinysrgb&w=300')">
+                    <img src="https://images.pexels.com/photos/15059375/pexels-photo-15059375/free-photo-of-hand-of-unrecognizable-person-putting-laptop-in-leather-bag-on-a-beige-background.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Laptop in Leather Bag">
+                    <h3>Laptop in Leather Bag</h3>
+                    <p>Price: $140</p>
+                </div>
+                <!-- New Product 2 -->
+                <div class="product-item" onclick="openModal('New Leather Product', 'A versatile leather product for everyday use. Price: $130', 'https://images.pexels.com/photos/12495668/pexels-photo-12495668.jpeg?auto=compress&cs=tinysrgb&w=300')">
+                    <img src="https://images.pexels.com/photos/12495668/pexels-photo-12495668.jpeg?auto=compress&cs=tinysrgb&w=300" alt="New Leather Product">
+                    <h3>New Leather Product</h3>
+                    <p>Price: $130</p>
+                </div>
+                <!-- New Product 3 -->
+                <div class="product-item" onclick="openModal('Bag with Belt', 'A stylish bag with a matching leather belt. Price: $110', 'https://images.pexels.com/photos/22432989/pexels-photo-22432989.jpeg?auto=compress&cs=tinysrgb&w=300')">
+                    <img src="https://images.pexels.com/photos/22432989/pexels-photo-22432989.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Bag with Belt">
+                    <h3>Bag with Belt</h3>
+                    <p>Price: $110</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Item Details -->
+    <div id="itemModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="modalDescription" class="modal-description"></div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form">
+        <h2>Get in Touch</h2>
+        <form id="emailForm" action="mailto:technostudent2309@gmail.com" method="POST" enctype="multipart/form-data">
+            <label for="customerEmail">Enter your Email:</label>
+            <input type="email" id="customerEmail" name="customerEmail" placeholder="Your email" required>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Luxury Leather E-Mart. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for the Modal
+        function openModal(title, description, imageUrl) {
+            document.getElementById('modalDescription').innerHTML = description;
+            document.getElementById('modalImage').src = imageUrl;
+            document.getElementById('itemModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('itemModal').style.display = "none";
+        }
+    </script>
+</body>
+</html>
